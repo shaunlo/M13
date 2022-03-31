@@ -1,0 +1,74 @@
+﻿@model M13.Models.Bowler
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Bowler</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BowlerID" />
+            <div class="form-group">
+                <label asp-for="BowlerLastName" class="control-label"></label>
+                <input asp-for="BowlerLastName" class="form-control" />
+                <span asp-validation-for="BowlerLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerFirstName" class="control-label"></label>
+                <input asp-for="BowlerFirstName" class="form-control" />
+                <span asp-validation-for="BowlerFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerMiddleInit" class="control-label"></label>
+                <input asp-for="BowlerMiddleInit" class="form-control" />
+                <span asp-validation-for="BowlerMiddleInit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerAddress" class="control-label"></label>
+                <input asp-for="BowlerAddress" class="form-control" />
+                <span asp-validation-for="BowlerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerCity" class="control-label"></label>
+                <input asp-for="BowlerCity" class="form-control" />
+                <span asp-validation-for="BowlerCity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerState" class="control-label"></label>
+                <input asp-for="BowlerState" class="form-control" />
+                <span asp-validation-for="BowlerState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerZip" class="control-label"></label>
+                <input asp-for="BowlerZip" class="form-control" />
+                <span asp-validation-for="BowlerZip" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BowlerPhoneNumber" class="control-label"></label>
+                <input asp-for="BowlerPhoneNumber" class="form-control" />
+                <span asp-validation-for="BowlerPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamID" class="control-label"></label>
+                <input asp-for="TeamID" class="form-control" />
+                <span asp-validation-for="TeamID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

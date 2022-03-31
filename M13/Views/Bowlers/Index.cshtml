@@ -1,0 +1,83 @@
+﻿@model IEnumerable<M13.Models.Bowler>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerMiddleInit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerZip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BowlerPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerMiddleInit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerZip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BowlerPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BowlerID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BowlerID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BowlerID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
