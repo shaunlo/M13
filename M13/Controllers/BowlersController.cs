@@ -95,14 +95,14 @@ namespace M13.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!BowlerExists(bowler.BowlerID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    //if (!BowlerExists(bowler.BowlerID))
+                    //{
+                    //    return NotFound();
+                    //}
+                    //else
+                    //{
+                    //    throw;
+                    //}
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -127,20 +127,29 @@ namespace M13.Controllers
             return View(bowler);
         }
 
-        // POST: Bowlers/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var bowler = await _context.Bowlers.FindAsync(id);
-            _context.Bowlers.Remove(bowler);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+        [HttpPost]
+        public IActionResult Delete(Bowler b) {
+            var bowler = _context.Bowlers
+                .FirstOrDefault(m => m.BowlerID == b.BowlerID);
+            _context.Remove(bowler);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
-        private bool BowlerExists(int id)
-        {
-            return _context.Bowlers.Any(e => e.BowlerID == id);
-        }
+        // POST: Bowlers/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> DeleteConfirmed(int id)
+        //{
+        //    var bowler = await _context.Bowlers.FindAsync(id);
+        //    _context.Bowlers.Remove(bowler);
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+        //private bool BowlerExists(int id)
+        //{
+        //    return _context.Bowlers.Any(e => e.BowlerID == id);
+        //}
     }
 }
